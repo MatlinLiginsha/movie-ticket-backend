@@ -4,7 +4,7 @@ const app = express()
 const movieRouter = require('./routes/movieRoute')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const PORT = 3500
+const PORT = process.env.PORT || 3000;
 const path = require('path');
 
 
