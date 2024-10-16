@@ -18,7 +18,9 @@ const signupRouter = require('./routes/signupRoute')
 
 app.use(express.json())
 app.use(cors())
-
+app.get('/', (req, res) => {
+    res.send('Welcome to the Movie Ticket Booking API!');
+  });
 app.use('/api/v1/movie', movieRouter);
 app.use('/api/v1/login',loginRouter)
 app.use('/api/v1/signup',signupRouter)
