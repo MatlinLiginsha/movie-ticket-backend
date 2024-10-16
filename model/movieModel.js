@@ -1,11 +1,21 @@
 const mongoose = require("mongoose")
 
 const movieSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true,
+        unique: true
+    },
     movieName:{
         type : String,
         required : true,
         unique : true,
         index:true
+    },
+    movieImage: 
+    { 
+        type: String, 
+        required:true
     },
     movieYear : {
         type : String,

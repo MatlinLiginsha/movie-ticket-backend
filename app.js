@@ -5,6 +5,8 @@ const movieRouter = require('./routes/movieRoute')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const PORT = 3500
+const path = require('path');
+
 
 mongoose.connect(process.env.DB_URL);
 const db = mongoose.connection
@@ -20,6 +22,8 @@ app.use(cors())
 app.use('/api/v1/movie', movieRouter);
 app.use('/api/v1/login',loginRouter)
 app.use('/api/v1/signup',signupRouter)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 app.listen(PORT, ()=>{
     console.log(`Server Running on http://localhost:${PORT}/api/v1/movie/`);
