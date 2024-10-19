@@ -23,12 +23,12 @@ const getMovieById = async (request, response) => {
         const movie = await movieModal.findOne({ id: id });
 
         if (!movie) {
-            return response.status(404).json({ message: 'Movie not found.' }); 
+            return response.status(404).json({ message: 'Movie not found.' });
         }
 
-        response.status(200).json(movie); 
+        response.status(200).json(movie);
     } catch (error) {
-        response.status(500).json({ message: error.message }); 
+        response.status(500).json({ message: error.message });
     }
 };
 
@@ -48,7 +48,7 @@ const addMovie = async (request, response) => {
         }
 
         const newMovieData = {
-            id: id,  
+            id: id,
             movieName: movieName,
             movieYear: movieYear,
             movieGenre1: movieGenre1,
@@ -56,44 +56,44 @@ const addMovie = async (request, response) => {
             imdbRating: imdbRating,
             movieTicketCost: movieTicketCost,
             seatsAvailable: seatsAvailable,
-            movieImage: movieImage  
+            movieImage: movieImage
         };
 
         const newMovie = await movieModal.create(newMovieData);
-        response.status(201).json(newMovie); 
+        response.status(201).json(newMovie);
     } catch (error) {
         response.status(500).json({ message: error.message });
     }
 };
 
 const updateMovie = async (request, response) => {
-    const { id } = request.params; 
-    const updateData = request.body; 
+    const { id } = request.params;
+    const updateData = request.body;
 
     try {
-        const updatedMovie = await movieModal.findOneAndUpdate({ id: id }, updateData, { new: true }); 
+        const updatedMovie = await movieModal.findOneAndUpdate({ id: id }, updateData, { new: true });
 
         if (!updatedMovie) {
             return response.status(404).json({ message: 'Movie not found.' });
         }
 
-        response.status(200).json(updatedMovie); 
+        response.status(200).json(updatedMovie);
     } catch (error) {
         response.status(500).json({ message: error.message });
     }
 };
 
 const deleteMovie = async (request, response) => {
-    const { id } = request.params; 
+    const { id } = request.params;
 
     try {
-        const deletedMovie = await movieModal.findOneAndDelete({ id: id }); 
+        const deletedMovie = await movieModal.findOneAndDelete({ id: id });
 
         if (!deletedMovie) {
             return response.status(404).json({ message: 'Movie not found.' });
         }
 
-        response.status(200).json({ message: 'Movie deleted successfully.' }); 
+        response.status(200).json({ message: 'Movie deleted successfully.' });
     } catch (error) {
         response.status(500).json({ message: error.message });
     }
@@ -111,8 +111,8 @@ const suggestMovie = async (request, response) => {
 
         response.status(200).json(suggestedMovie);
     } catch (error) {
-        response.status(500).json({ message: error.message });
+        response.status(500).json({ message: error.message });n
     }
 };
 
-module.exports = { getMovieById,getAllMovies, addMovie, updateMovie, deleteMovie, suggestMovie };
+module.exports = { getMovieById, getAllMovies, addMovie, updateMovie, deleteMovie, suggestMovie };

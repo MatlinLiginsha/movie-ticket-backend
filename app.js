@@ -4,7 +4,7 @@ const app = express()
 const movieRouter = require('./routes/movieRoute')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3501;
 const path = require('path');
 
 
@@ -18,9 +18,7 @@ const signupRouter = require('./routes/signupRoute')
 
 app.use(express.json())
 app.use(cors())
-app.get('/', (req, res) => {
-    res.send('Welcome to the Movie Ticket Booking API!');
-  });
+
 app.use('/api/v1/movie', movieRouter);
 app.use('/api/v1/login',loginRouter)
 app.use('/api/v1/signup',signupRouter)
