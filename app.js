@@ -4,9 +4,7 @@ const app = express()
 const movieRouter = require('./routes/movieRoute')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const PORT = process.env.PORT || 3501;
-const path = require('path');
-
+const PORT = process.env.PORT || 3500;
 
 mongoose.connect(process.env.DB_URL);
 const db = mongoose.connection
