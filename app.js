@@ -17,7 +17,7 @@ const loginRouter = require('./routes/loginRoute')
 const signupRouter = require('./routes/signupRoute')
 
 app.use(express.json())
-app.use(cors({origin:'https://movie-ticket-frontend-sandy.vercel.app/'}))
+app.use(cors())
 
 app.use('/api/v1/movie', movieRouter);
 app.use('/api/v1/login',loginRouter)
